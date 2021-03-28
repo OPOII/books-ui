@@ -25,7 +25,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
     NzModalModule,
     NzFormModule,
     ReactiveFormsModule,
-    NzIconModule
+    NzIconModule,
   ],
   declarations: [OverviewComponent],
   exports: [OverviewComponent],
