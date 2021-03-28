@@ -11,8 +11,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2 #Checkout Repo
-      - uses: actions/setup-node@v1 #Setup Node
+      - uses: actions/checkout@v2 
+      - uses: actions/setup-node@v1 
         with:
           node-version: 12.x
       - name: Run tests
@@ -22,7 +22,7 @@ jobs:
       - name: Test Event
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: ${{secrets.ACCES_TOKEN}}
-          repository: OPOII/UITest
-          event-type: npm run test:e2e:ui:headless
+          token: ${{secrets.ACCES_TOKEN}} #Use the access token created
+          repository: OPOII/UITest #The repository to make the test
+          event-type: npm run test:e2e:ui:headless 
           client-payload: '{"sha": "${{ github.sha }}"}'
