@@ -8,26 +8,21 @@ on:
     branches: [main]
 
 jobs:
-  testUI:
-    runs-on: ubuntu-latest
-    steps:
-      -name: Test ui CI
-        uses: OPOII/workflow-dispatch@v1
-        with:
-          workflow: Test ui CI
-          repo: OPOII/UITest
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup repo
-        uses: actions/checkout@v2
-
-      - name: Use Node.js 12
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v2 #Checkout Repo
+      - uses: actions/setup-node@v1 #Setup Node
         with:
           node-version: 12.x
-      - name: Install dependencies
-        run: npm ci
-      - name: Run Tests
+      - name: Run tests
         run: |
-          npm run test:headless
+          npm install
+          npm run test
+      - name: Test Event
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{secrets.ACCES_TOKEN}}
+          repository: OPOII/UITest
+          event-type: npm run test:e2e:ui:headless
+          client-payload: '{"sha": "${{ github.sha }}"}'

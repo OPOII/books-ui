@@ -24,7 +24,7 @@
     "@angular/router": "~11.1.2",
     "@ant-design/icons-angular": "^11.0.1",
     "express": "^4.17.1",
-    "ng-zorro-antd": "^11.2.0",
+    "ng-zorro-antd": "^11.3.0",
     "path": "^0.12.7",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
