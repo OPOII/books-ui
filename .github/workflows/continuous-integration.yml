@@ -8,6 +8,14 @@ on:
     branches: [main]
 
 jobs:
+  testUI:
+    runs-on: ubuntu-latest
+    steps:
+      -name: Test ui CI
+        uses: OPOII/workflow-dispatch@v1
+        with:
+          workflow: Test ui CI
+          repo: OPOII/UITest
   test:
     runs-on: ubuntu-latest
     steps:
